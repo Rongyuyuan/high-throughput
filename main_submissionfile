@@ -1,0 +1,14 @@
+#!/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/16.09/bin/bash
+#SBATCH --account=rrg-alsei
+#SBATCH --job-name=Ti2_Fe_H2
+#SBATCH --ntasks-per-node=32
+#SBATCH --nodes=4
+#SBATCH --mem-per-cpu=4000M  # memory; default unit is megabytes
+#SBATCH --time=0-24:00           # time (DD-HH:MM)
+#SBATCH --mail-user=rongyu.yuan@mail.mcgill.ca
+#SBATCH --mail-user=hasanalmahayni@gmail.com
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH --mail-type=FAIL
+module load  nixpkgs/16.09  gcc/5.4.0  openmpi/2.0.2 cp2k/4.1
+srun cp2k.popt -i  cp2k.inp  > RESULTS

@@ -4,7 +4,7 @@ from subprocess import run, PIPE, Popen, TimeoutExpired
 pwd = run("pwd",shell=True,stdout=PIPE) 
 pwd = pwd.stdout.decode('utf8').rstrip()
 
-
+# copy run.py to sub-directories
 tms = ["Ti3/Ni","Ti3/Pt","Mo2/Ru"]
 intermediates = ["H2","CO2","OCHO","HCOOH","CHO","OCH2","OCH3","COOH","CHOH","CH2OH","CH2","CH3","O","CO"]
 '''all_running_path = []
@@ -26,5 +26,6 @@ with open('all_running_path','r') as f:
     for item in lines:
         all_run_path.append(item.rstrip())
 
+# run jobs
 for i in range(len(all_run_path)):
     proc = Popen(['sbatch','submissionfile'],cwd=all_run_path[i], stdout=PIPE)                

@@ -1,7 +1,7 @@
 import os
 from subprocess import run, PIPE, Popen, TimeoutExpired 
 
-
+# when vibxxxxx.pckl for a job is empty after running, delete files in the directory and submit the job again
 def del_empty(G_path):
     for f_name in os.listdir(G_path):
         if f_name.startswith('vib') and f_name.endswith('.pckl'):
